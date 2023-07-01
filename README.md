@@ -47,3 +47,10 @@ To check if everything will be ok in production before the deployment, you can r
 ```sh
 yarn preview
 ```
+### Deploy
+```sh
+ssh login@host
+#after that pass password
+#install docker+docker-compose
+docker-compose build && docker-compose up
+```

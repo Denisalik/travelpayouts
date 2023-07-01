@@ -1,43 +1,35 @@
-import { useState } from 'react'
-import { ReactComponent as Logo } from './logo.svg'
-import './app.css'
+import React from 'react';
+import classes from '@/css/Card.module.scss';
+import Card from '@/components/Card';
+import { Grid } from 'antd';
+
+const { useBreakpoint } = Grid;
+
+const breakpointValues: Record<string, string> = {
+  xs: '480px',
+  md: '768px',
+  xl: '1200px',
+};
 
 export function App () {
-  const [count, setCount] = useState(0)
-
+  const screens = useBreakpoint();
+  const breakpoints = Object.entries(screens).filter(bp => bp[0] in breakpointValues);
+  const trueBreakpoints = breakpoints
+    .filter(bp => bp[1])
+    .map(bp => bp[0])
+    .map(bp => `${bp}(${breakpointValues[bp]})`);
+  const falseBreakpoints = breakpoints
+    .filter(bp => !bp[1])
+    .map(bp => bp[0])
+    .map(bp => `${bp}(${breakpointValues[bp]})`);
   return (
     <div className='App'>
-      <header className='App-header'>
-        <Logo className='App-logo' title='logo' />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type='button' onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className='App-link'
-            href='https://reactjs.org'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className='App-link'
-            href='https://vitejs.dev/guide/features.html'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      <div>Use dev tools to check responsive design</div>
+      <div>True: {trueBreakpoints.join(' ')}</div>
+      <div>False: {falseBreakpoints.join(' ')}</div>
+      <br />
+      <br />
+      <Card />
     </div>
-  )
+  );
 }

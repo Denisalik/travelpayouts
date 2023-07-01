@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+@function decr($val){
+  @return calc(#{$val} - 1px)
+}
+
+$xs: '480px';
+$md: '768px';
+$xl: '1200px';
+$xxl: '1600px';
+
+.check {
+  background-color: red;
+}
+.container {
+  font-family: "Open Sans", sans-serif;
+  color: #FFFFFF;
+  background-color: #4A90E2;
+  min-width: 200px;
+  max-width: 800px;
+  @media screen and (max-width: decr($xl)) and (min-width: $md) {
+    width: 500px;
+  }
+  @media screen and (max-width: decr($md)) and (min-width: $xs) {
+    width: 400px;
+  }
+  @media screen and (max-width: decr($xs)) {
+    width: auto;
+  }
+  padding: 0 20px;
+}
+.title {
+  font-size: 24px;
+  @media screen and (max-width: decr($md)) {
+    font-size: 18px;
+  }
+}
+.description {
+  text-align: center;
+  @media screen and (min-width: decr($xl))  {
+    text-align: start;
+  }
+  font-size: 10px;
+}
+
+.range {
+  width: 420px;
+  height: 40px;
+  @media screen and (max-width: decr($xl)) and (min-width: $md) {
+    width: 460px;
+  }
+  @media screen and (max-width: decr($md)) and (min-width: $xs) {
+    width: 400px;
+  }
+  @media screen and (max-width: decr($xs)) {
+    width: auto;
+  }
+}
+
+.button {
+  background-color: #F5A623;
+  color: #FFFFFF;
+  border: none;
+  height: 40px;
+  width: 240px;
+  @media screen and (max-width: decr($xl)) and (min-width: $md) {
+    width: 460px;
+  }
+  @media screen and (max-width: decr($md)) and (min-width: $xs) {
+    width: 400px;
+  }
+  @media screen and (max-width: decr($xs)) {
+    width: auto;
+  }
+}
+.button:hover {
+  background-color: #D58603 !important;
+  color: wheat !important;
+}
+
+.column:not(:last-child) {
+  margin-bottom: 8px;
+}

@@ -1,9 +1,9 @@
 import { App } from '@/app'
-import { render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react';
 
 it('Test', () => {
-  render(<App />)
+  render(<App />);
 
-  const button = screen.getByRole('button')
-  expect(button).toBeEnabled()
-})
+  const button = screen.getByRole('button');
+  expect(button).toBeEnabled();
+});

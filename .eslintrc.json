@@ -10,6 +10,8 @@
     "jsx-a11y"
   ],
   "rules": {
+    "semi": [2, "always"],
+    "no-void": "off",
     "comma-dangle": [
       "error",
       {

@@ -15,4 +15,10 @@ export default defineConfig(configEnv => ({
     }),
     svgrPlugin(),
   ],
+  server: {
+    port: 3000,
+  },
+  preview: {
+    port: 3000,
+  },
 }))
